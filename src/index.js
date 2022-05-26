@@ -1,6 +1,3 @@
-import _ from 'lodash';
-// import '../styles'; //need files
-import NavBar from './header.js';
+import _ from 'lodash'
 
 console.log ("Mi perrito Ryuk");
-NavBar;
