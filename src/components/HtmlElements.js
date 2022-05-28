@@ -1,7 +1,3 @@
-// import { head } from "lodash";
-import { navBar } from "./components/header.js";
-import { hello } from "./components/header.js";
-
 const d = document,
     $header = d.querySelector('div#header'),
     $main = d.querySelector('div#main'),
@@ -18,7 +14,5 @@ function createHtmlElement(type, id, classesArray, content) {
   return element;
 }
 
-hello('Ryuk');
-navBar();
-
+export {d, $header, $main, $footer}
 export default createHtmlElement;
