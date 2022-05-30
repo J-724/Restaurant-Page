@@ -8,11 +8,11 @@ function createHtmlElement(type, id, classesArray, content) {
   if (id) element.id = id;
   if (classesArray){
     classesArray.forEach((sgclass) => element.classList.add(sgclass));
-  }
+  };
   if (content) element.innerText = content;
 
   return element;
 }
 
-export {d, $header, $main, $footer}
+export {d, $header, $main, $footer};
 export default createHtmlElement;

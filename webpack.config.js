@@ -12,8 +12,25 @@ module.exports = {
   module: {
     rules: [
         {
+          test: /\.js$/i,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+          }
+        },
+        {
          test: /\.css$/i,
-         use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader'],
+         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        //  use:[
+        //    {
+        //      loader: MiniCssExtractPlugin.loader,
+        //      options: {
+        //        publicPath: "./",
+        //      },
+        //    },
+        //    "style-loader",
+        //    "css-loader",
+        //  ]
         },
         {
          test: /\.html$/i,
@@ -27,8 +44,8 @@ module.exports = {
           ],
         },
         {
-         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-         use: ["file-loader?name=assets/[name].[ext]"], 
+         test: /\.(svg|jpg|jpeg|gif|png)$/i,
+         use: ["file-loader?name=assets/[name].[ext]","image-webpack-loader"], 
          type: 'asset/resource',
         },
         {
