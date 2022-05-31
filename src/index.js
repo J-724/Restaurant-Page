@@ -1,6 +1,7 @@
 import _ from "lodash";
 import navBar from "./components/header.js";
-import renderMenu from "./components/main_menu.js"
+import {renderMenuObj, renderMenuArray}from "./components/main_menu.js"
 
 navBar();
-renderMenu();
+renderMenuObj();
+renderMenuArray();

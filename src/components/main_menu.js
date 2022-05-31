@@ -26,7 +26,7 @@ const MenuItem = (name, cost, info, imgSrc, imgAlt) => {
     return {Item};
 };
 
-const menuData = [
+const menuDataObj = [
     {
         name: "Tomato Bruscheta",
         cost: "$4.00",
@@ -46,31 +46,89 @@ const menuData = [
         cost: "$7.00",
         info: "Layered mascarpone cheese and lady fingers with cafe",
         imgSrc: $bruscheta,
-        imgAlt: "Bruscheta de Tomate",
+        imgAlt: "Tiramisu",
     },
 ];
-
-function renderMenu() {
+ 
+function renderMenuObj() {
     const $bienvenidos = createHtmlElement("p", null, null, "Welcome");
-    const $title = createHtmlElement("h1", null, ["gray"], "Menu");
+    const $title = createHtmlElement("h1", null, null, "Menu");
     const $hr = d.createElement("hr");
   
     $main.appendChild($bienvenidos);
     $main.appendChild($title);
     $main.appendChild($hr);
     
-    menuData.forEach((item) => {
-        // $main.append(MenuItem(item.name, item.cost, item.info, item.imgSrc, item.imgAlt)); 
+    menuDataObj.forEach((item) => {
+        let data = JSON.stringify([item.name, item.cost, item.info, item.imgSrc, item.imgAlt]);
+        // console.log(data);
+        $main.append(MenuItem(...data));
     });
 
-    // for (let i = 0; i < menuData.length; i++) {
-    //     $main.append(MenuItem(menuData[i].name, menuData[i].cost, menuData[i].info, menuData[i].imgSrc, menuData[i].imgAlt))
-    // }
-
     return $main;
-}
+};
+
+
+
+const menuDataA = [
+    [
+     "Tomato Bruschetas", 
+     "$4.0", 
+     "Bread", 
+     $bruscheta, 
+     "Tomato Bruschetas"
+    ],
+    [
+     "Tomato Bruschetas", 
+     "$4.0", 
+     "Bread", 
+     $bruscheta, 
+     "Tomato Bruschetas"
+    ],
+    [
+     "Tomato Bruschetas", 
+     "$4.0", 
+     "Bread", 
+     $bruscheta, 
+     "Tomato Bruschetas"
+    ],
+];   
+
+console.log(typeof(menuDataA));
+
+function renderMenuArray() {
+    const $bienvenidos = createHtmlElement("p", null, null, "Welcome");
+    const $title = createHtmlElement("h1", null, null, "Menu");
+    const $hr = d.createElement("hr");
   
-export default renderMenu;
+    $main.appendChild($bienvenidos);
+    $main.appendChild($title);
+    $main.appendChild($hr);
+
+    for (let i = 0; i < menuDataA.length; i++) {
+        $main.append(MenuItem("Perrito",
+                              menuDataA[i][1], 
+                              menuDataA[i][2], 
+                              "", 
+                              menuDataA[i][4]));         
+    }
+};    
+  
+export {renderMenuObj, renderMenuArray};
+
+// const testing = (()=>{
+//     console.log(" ");
+
+//     let item1 = menuData[0].name;
+//     console.log(typeof(item1));
+
+//     let item2 = JSON.stringify([menuData[1].name, menuData[1].cost,]);
+//     console.log(typeof(item2));
+
+//     console.log(item1);
+//     console.log(menuData[0])
+// })();
+
 
 //guide
 /* <div class="menu_item">
