@@ -2,7 +2,7 @@ import style from "../style.css";
 import createHtmlElement from "./HtmlElements.js"; 
 import {d, $main} from "./HtmlElements.js";
 import $bruscheta from "../assets/bruscheta.jpg";
-import $chickenParmigiana from "../assets/bruscheta.jpg";
+import $chickenParmigiana from "../assets/chicken-parmigiana.jpg";
 import $tiramisu from "../assets/tiramisu.jpg";
 // import { $bruscheta } from "..";
 
@@ -10,34 +10,32 @@ const menuData = [
     {
         name: "Tomato Bruscheta",
         cost: "$4.00",
-        info: "Bread",
+        info: "Info",
         imgSrc: $bruscheta,
         imgAlt: "Tomato Bruscheta",
     },
     {
         name: "Chicken Parmigiana",
         cost: "$18.00",
-        info: "Chicken breast with pasta",
+        info: "Info",
         imgSrc: $chickenParmigiana,
         imgAlt: "Chicken Parmigiana",
     },
     {
         name: "Tiramisu",
         cost: "$7.00",
-        info: "Layered mascarpone cheese and lady fingers with cafe",
+        info: "Layered mascarpone cheese and lady fingers with coffe",
         imgSrc: $tiramisu,
         imgAlt: "Tiramisu",
     },
 ];
 
 const MenuItem = (name, cost, info, imgSrc, imgAlt) => {
-    console.log(name, cost, info, imgSrc, imgAlt);
-    console.log(typeof(name), typeof(cost), typeof(info), typeof(imgSrc), typeof(imgAlt));
     const Item = createHtmlElement("div", null, ["menu-item"], null);
     const Image = createHtmlElement("img", null,  ["menu-img"], null);
             Image.src =  imgSrc;
             Image.alt = imgAlt;
-    const ImageDiv = createHtmlElement("div", null, ["menu-img-wrapper"], "Image");
+    const ImageDiv = createHtmlElement("div", null, ["menu-img-wrapper"], null);
     const contentDiv = createHtmlElement("div", null, ["menu-content"], null);
     const contentArray = [name, cost, info];
     const contentClasses = ["item-name", "item-cost", "item-info"];
