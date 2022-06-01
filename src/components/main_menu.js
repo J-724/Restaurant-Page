@@ -1,11 +1,10 @@
 import style from "../style.css";
 import createHtmlElement from "./HtmlElements.js"; 
 import {d, $main} from "./HtmlElements.js";
-import $bruscheta from "../assets/tomato-bruschetta-600x900.jpg";
-// import $chicken_parmigiana from "./assets/chicken_parmigiana.png"
-// const $chicken_parmigiana = require("./assets/chicken_parmigiana.png");
-// const $tiramisu = require("./assets/tiramisu.png");
-// let $bruscheta = "";
+import $bruscheta from "../assets/bruscheta.jpg";
+import $chickenParmigiana from "../assets/bruscheta.jpg";
+import $tiramisu from "../assets/tiramisu.jpg";
+// import { $bruscheta } from "..";
 
 const menuData = [
     {
@@ -19,14 +18,14 @@ const menuData = [
         name: "Chicken Parmigiana",
         cost: "$18.00",
         info: "Chicken breast with pasta",
-        imgSrc: $bruscheta,
+        imgSrc: $chickenParmigiana,
         imgAlt: "Chicken Parmigiana",
     },
     {
         name: "Tiramisu",
         cost: "$7.00",
         info: "Layered mascarpone cheese and lady fingers with cafe",
-        imgSrc: $bruscheta,
+        imgSrc: $tiramisu,
         imgAlt: "Tiramisu",
     },
 ];
