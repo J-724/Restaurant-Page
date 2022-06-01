@@ -1,32 +1,12 @@
 import createHtmlElement from "./HtmlElements.js"; 
 import {d, $main} from "./HtmlElements.js";
-// import $bruscheta from "../assets/tomato-bruschetta-600x900.jpg";
+import $bruscheta from "../assets/tomato-bruschetta-600x900.jpg";
 // import $chicken_parmigiana from "./assets/chicken_parmigiana.png"
 // const $chicken_parmigiana = require("./assets/chicken_parmigiana.png");
 // const $tiramisu = require("./assets/tiramisu.png");
-let $bruscheta = "";
+// let $bruscheta = "";
 
-// Menu Elements Factory function
-const MenuItem = (name, cost, info, imgSrc, imgAlt) => {
-    // console.log(name, cost, info, imgSrc, imgAlt)
-    const Item = createHtmlElement("div", null, ["menu-item"], null);
-    const Image = createHtmlElement("img", null,  ["menu-img"], null);
-            Image.src =  imgSrc;
-            Image.alt = imgAlt;
-    const ImageDiv = createHtmlElement("div", null, ["menu-img-wrapper"], "Image");
-    const contentDiv = createHtmlElement("div", null, ["menu-content"], null);
-    const contentArray = [name, cost, info];
-    const contentClasses = ["item-name", "item-cost", "item-info"];
-
-    for (let i = 0; i < 3; i++) {
-        contentDiv.append(createHtmlElement("div", null, [contentClasses[i]], contentArray[i]));  
-    }
-
-    Item.append(ImageDiv, contentDiv);
-    return {Item};
-};
-
-const menuDataObj = [
+const menuData = [
     {
         name: "Tomato Bruscheta",
         cost: "$4.00",
@@ -49,24 +29,54 @@ const menuDataObj = [
         imgAlt: "Tiramisu",
     },
 ];
+
+const MenuItem = (name, cost, info, imgSrc, imgAlt) => {
+    console.log(name, cost, info, imgSrc, imgAlt);
+    console.log(typeof(name), typeof(cost), typeof(info), typeof(imgSrc), typeof(imgAlt));
+    const Item = createHtmlElement("div", null, ["menu-item"], null);
+    const Image = createHtmlElement("img", null,  ["menu-img"], null);
+            Image.src =  imgSrc;
+            Image.alt = imgAlt;
+    const ImageDiv = createHtmlElement("div", null, ["menu-img-wrapper"], "Image");
+    const contentDiv = createHtmlElement("div", null, ["menu-content"], null);
+    const contentArray = [name, cost, info];
+    const contentClasses = ["item-name", "item-cost", "item-info"];
+
+    for (let i = 0; i < 3; i++) {
+        contentDiv.append(createHtmlElement("div", null, [contentClasses[i]], contentArray[i]));  
+    };
+
+    Item.append(ImageDiv, contentDiv);
+    return Item;
+};
  
-function renderMenuObj() {
-    const $bienvenidos = createHtmlElement("p", null, null, "Welcome");
+function renderMenu() {
+    const $greet = createHtmlElement("p", null, null, "Welcome");
     const $title = createHtmlElement("h1", null, null, "Menu");
     const $hr = d.createElement("hr");
   
-    $main.appendChild($bienvenidos);
-    $main.appendChild($title);
-    $main.appendChild($hr);
+    $main.append($greet, $title, $hr);
     
-    menuDataObj.forEach((item) => {
-        let data = JSON.stringify([item.name, item.cost, item.info, item.imgSrc, item.imgAlt]);
-        // console.log(data);
+    menuData.forEach((item) => {
+        let data = [item.name, item.cost, item.info, item.imgSrc, item.imgAlt];
+        // console.log("V3" + data);
         $main.append(MenuItem(...data));
     });
 
     return $main;
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -92,16 +102,14 @@ const menuDataA = [
      $bruscheta, 
      "Tomato Bruschetas"
     ],
-];   
-
-console.log(typeof(menuDataA));
+];
 
 function renderMenuArray() {
-    const $bienvenidos = createHtmlElement("p", null, null, "Welcome");
+    const $greet = createHtmlElement("p", null, null, "Welcome");
     const $title = createHtmlElement("h1", null, null, "Menu");
     const $hr = d.createElement("hr");
   
-    $main.appendChild($bienvenidos);
+    $main.appendChild($greet);
     $main.appendChild($title);
     $main.appendChild($hr);
 
@@ -114,7 +122,7 @@ function renderMenuArray() {
     }
 };    
   
-export {renderMenuObj, renderMenuArray};
+export {renderMenu};
 
 // const testing = (()=>{
 //     console.log(" ");
