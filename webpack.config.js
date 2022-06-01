@@ -20,17 +20,17 @@ module.exports = {
         },
         {
          test: /\.css$/i,
-         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-        //  use:[
-        //    {
-        //      loader: MiniCssExtractPlugin.loader,
-        //      options: {
-        //        publicPath: "./",
-        //      },
-        //    },
-        //    "style-loader",
-        //    "css-loader",
-        //  ]
+        //  use: [MiniCssExtractPlugin.loader, 'css-loader'],
+         use:[
+           {
+             loader: MiniCssExtractPlugin.loader,
+             options: {
+               publicPath: "./",
+             },
+           },
+          //  "style-loader",
+           "css-loader",
+         ]
         },
         {
          test: /\.html$/i,

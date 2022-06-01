@@ -1,3 +1,4 @@
+import style from "../style.css";
 import createHtmlElement from "./HtmlElements.js"; 
 import {d, $main} from "./HtmlElements.js";
 import $bruscheta from "../assets/tomato-bruschetta-600x900.jpg";
@@ -45,9 +46,10 @@ const MenuItem = (name, cost, info, imgSrc, imgAlt) => {
     for (let i = 0; i < 3; i++) {
         contentDiv.append(createHtmlElement("div", null, [contentClasses[i]], contentArray[i]));  
     };
-
+    ImageDiv.append(Image);
     Item.append(ImageDiv, contentDiv);
-    return Item;
+
+    return $main.append(Item);
 };
  
 function renderMenu() {
@@ -59,68 +61,12 @@ function renderMenu() {
     
     menuData.forEach((item) => {
         let data = [item.name, item.cost, item.info, item.imgSrc, item.imgAlt];
-        // console.log("V3" + data);
         $main.append(MenuItem(...data));
     });
 
     return $main;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const menuDataA = [
-    [
-     "Tomato Bruschetas", 
-     "$4.0", 
-     "Bread", 
-     $bruscheta, 
-     "Tomato Bruschetas"
-    ],
-    [
-     "Tomato Bruschetas", 
-     "$4.0", 
-     "Bread", 
-     $bruscheta, 
-     "Tomato Bruschetas"
-    ],
-    [
-     "Tomato Bruschetas", 
-     "$4.0", 
-     "Bread", 
-     $bruscheta, 
-     "Tomato Bruschetas"
-    ],
-];
-
-function renderMenuArray() {
-    const $greet = createHtmlElement("p", null, null, "Welcome");
-    const $title = createHtmlElement("h1", null, null, "Menu");
-    const $hr = d.createElement("hr");
-  
-    $main.appendChild($greet);
-    $main.appendChild($title);
-    $main.appendChild($hr);
-
-    for (let i = 0; i < menuDataA.length; i++) {
-        $main.append(MenuItem("Perrito",
-                              menuDataA[i][1], 
-                              menuDataA[i][2], 
-                              "", 
-                              menuDataA[i][4]));         
-    }
-};    
   
 export {renderMenu};
 
@@ -138,7 +84,7 @@ export {renderMenu};
 // })();
 
 
-//guide
+//HTML guide
 /* <div class="menu_item">
     <div class="menu-img">
         <img src="" alt="" class="">
