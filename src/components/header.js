@@ -2,7 +2,7 @@ import createHtmlElement from "./HtmlElements.js";
 import {d, $header} from "./HtmlElements.js";
 
 function navBar() {
-    const navBarItems = ["Home", "Menu", "Contact us"];
+    const navBarItems = ["Home", "Menu", "Contact Us"];
     const $nav = d.createElement("div");
 
     navBarItems.forEach((item) => {

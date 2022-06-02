@@ -4,7 +4,6 @@ import {d, $main} from "./HtmlElements.js";
 import $bruscheta from "../assets/bruscheta.jpg";
 import $chickenParmigiana from "../assets/chicken-parmigiana.jpg";
 import $tiramisu from "../assets/tiramisu.jpg";
-// import { $bruscheta } from "..";
 
 const menuData = [
     {
@@ -59,27 +58,14 @@ function renderMenu() {
     menuData.forEach((item) => {
         let data = [item.name, item.cost, item.info, item.imgSrc, item.imgAlt];
         $main.append(MenuItem(...data));
+        console.log("Flag \n" + data);
     });
 
+    console.log("");
     return $main;
 };
 
-  
-export {renderMenu};
-
-// const testing = (()=>{
-//     console.log(" ");
-
-//     let item1 = menuData[0].name;
-//     console.log(typeof(item1));
-
-//     let item2 = JSON.stringify([menuData[1].name, menuData[1].cost,]);
-//     console.log(typeof(item2));
-
-//     console.log(item1);
-//     console.log(menuData[0])
-// })();
-
+export default renderMenu;
 
 //HTML guide
 /* <div class="menu_item">

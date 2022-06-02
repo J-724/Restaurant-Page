@@ -1,7 +1,9 @@
+import style from "../style.css";
+
 const d = document,
-    $header = d.querySelector('div#header'),
-    $main = d.querySelector('div#main'),
-    $footer = d.querySelector('div#footer');
+    $header = d.querySelector('div.header'),
+    $main = d.querySelector('div.main'),
+    $footer = d.querySelector('div.footer');
 
 function createHtmlElement(type, id, classesArray, content) {
   const element = d.createElement(type);
